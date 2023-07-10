@@ -61,6 +61,7 @@ def decrypt(message):
     citext = '' # Stores each letter of the Morse code
 
     for letter in message:
+
         if letter != ' ':
             i = 0
             citext += letter
@@ -74,15 +75,23 @@ def decrypt(message):
                     if citext == value:
                         decipher += key
                     
+                    
                 citext = ''
+    
+    for key, value in Morse_Code_Translate.items():
+                    if citext == value:
+                        decipher += key
+    
     return decipher
 
 
 if __name__ == "__main__":
+   
    MorseCrypt = input("Enter a morse cipher to be decoded:" )
    print(decrypt(MorseCrypt.upper()))
+   
    #MorseEncrypt = input("Enter a message to change to morse: ")
    #print(encrypt(MorseEncrypt.upper()))
-
+   
 
 
